@@ -1,3 +1,4 @@
+import 'package:batch_2/screens/auth_screens/login_screen.dart';
 import 'package:batch_2/screens/start_screens/on_Boarding.dart';
 import 'package:batch_2/screens/start_screens/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: OnBoardingScreen()
+      home: LoginScreen()
     );
   }
 }
