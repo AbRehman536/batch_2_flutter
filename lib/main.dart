@@ -1,6 +1,7 @@
 
 import 'package:batch_2/screens/auth_screens/login_screen.dart';
 import 'package:batch_2/screens/home_screens/explore.dart';
+import 'package:batch_2/screens/home_screens/favorite.dart';
 import 'package:batch_2/screens/start_screens/on_Boarding.dart';
 import 'package:batch_2/screens/start_screens/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
 
-      home: ExploreScreen(),
+      home: FavoriteScreen(),
     );
   }
 }
