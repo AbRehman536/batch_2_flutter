@@ -7,5 +7,6 @@ class AppAssets {
   static String backgroundImage = "assets/images/background.png";
   static String product1Image = "assets/images/product1.png";
   static String canImage = "assets/images/can.png";
+  static String bananaImage = "assets/images/banana.png";
   ///Icons
 }
