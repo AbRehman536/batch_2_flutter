@@ -1,3 +1,4 @@
+import 'package:batch_2/constants/app_colors.dart';
 import 'package:batch_2/utils/widgets/custom_container.dart';
 import 'package:flutter/material.dart';
 
@@ -33,99 +34,81 @@ class _HomeScreenState extends State<HomeScreen> {
         title: "Ginger",
         weight: "250gm",
         price: 2.99),
-    CartModel(
-        image: AppAssets.bananaImage,
-        title: "Bell Pepper Red",
-        weight: "12pcs",
-        price: 3.90),
-    CartModel(
-        image: AppAssets.bananaImage,
-        title: "Ginger",
-        weight: "250gm",
-        price: 2.99),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.secondaryColor,
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(15.0),
         child: Column(
           children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: .spaceBetween,
               children: [
-                Text("Exclusive Offer"),
-                Text("See all")
+                Text("Exclusive Offer", style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600
+                ),),
+                Text("See all", style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
+                  color: AppColors.primaryColor
+                ),),
+
               ],
             ),
-            Flexible(
-              flex: 1,
+            SizedBox(height: 10,),
+            Container(
+              height: 248,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: cartList.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: CustomContainer(
-                        image: cartList[index].image.toString(),
-                        title: cartList[index].title.toString(),
-                        description: cartList[index].weight.toString(),
-                        price: cartList[index].price),
-                  );
-                },),
+                return Padding(
+                  padding: const EdgeInsets.only(right: 10.0),
+                  child: CustomContainer(
+                      image: cartList[index].image.toString(),
+                      title: cartList[index].title.toString(),
+                      desc: cartList[index].weight.toString(),
+                      price: cartList[index].price.toDouble()),
+                );
+              },),
             ),
-
+            SizedBox(height: 10,),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: .spaceBetween,
               children: [
-                Text("Best Selling"),
-                Text("See all")
+                Text("Best Selling", style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600
+                ),),
+                Text("See all", style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
+                  color: AppColors.primaryColor
+                ),),
+
               ],
             ),
-
-            Expanded(
+            SizedBox(height: 10,),
+            Container(
+              height: 248,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: cartList.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: CustomContainer(
-                        image: cartList[index].image.toString(),
-                        title: cartList[index].title.toString(),
-                        description: cartList[index].weight.toString(),
-                        price: cartList[index].price),
-                  );
-                },),
+                return Padding(
+                  padding: const EdgeInsets.only(right: 10.0),
+                  child: CustomContainer(
+                      image: cartList[index].image.toString(),
+                      title: cartList[index].title.toString(),
+                      desc: cartList[index].weight.toString(),
+                      price: cartList[index].price.toDouble()),
+                );
+              },),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text("Best Selling"),
-                Text("See all")
-              ],
-            ),
-
-            Expanded(
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: cartList.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child:
-                    Container(
-                      child:
-                      Row(
-                        children: [
-                          Image.asset(cartList[index].image.toString(),width: 50,),
-                          Text(cartList[index].title),
-                        ],
-                      ),
-                    )
-                  );
-                },),
-            ),
+            SizedBox(height: 10,),
           ],
         ),
       ),

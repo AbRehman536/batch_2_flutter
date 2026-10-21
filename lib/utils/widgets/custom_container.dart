@@ -4,57 +4,61 @@ import 'package:flutter/material.dart';
 class CustomContainer extends StatelessWidget {
   final String image;
   final String title;
-  final String description;
+  final String desc;
   final double price;
   const CustomContainer({
     super.key,
     required this.image,
     required this.title,
-    required this.description,
+    required this.desc,
     required this.price});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 173,
       height: 248,
+      width: 173,
       decoration: BoxDecoration(
-        borderRadius: .circular(18),
         color: AppColors.secondaryColor,
+        borderRadius: .circular(18),
         border: Border.all(
           color: Color(0xffE2E2E2),
           width: 1
         )
       ),
       child: Padding(
-        padding: const EdgeInsets.all(15.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: .start,
           children: [
             Align(
-                alignment: Alignment.center,
-                child: Image.asset(image,width: 60,height: 60,)),
+                alignment: .center,
+                child: Image.asset(image,width: 80,height: 80,)),
+            SizedBox(height: 5,),
             Text(title, style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w700,
+              fontSize: 16
             ),),
-            Text("$description, Price", style: TextStyle(
+            SizedBox(height: 5,),
+            Text("$desc, Price", style: TextStyle(
+              fontWeight: FontWeight.w700,
               fontSize: 14,
-              fontWeight: FontWeight.w400,
+              color: Colors.grey
             ),),
+            SizedBox(height: 5,),
             Row(
-             mainAxisAlignment: .spaceBetween,
+              mainAxisAlignment: .spaceBetween,
               children: [
-
                 Text("\$$price", style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 16
                 ),),
                 FloatingActionButton.small(
+                  elevation: 0,
                   backgroundColor: AppColors.primaryColor,
-                  foregroundColor: AppColors.secondaryColor,
+                  foregroundColor: Colors.white,
                   onPressed: (){},
-                child: Icon(Icons.add),)
+                  child: Icon(Icons.add),)
               ],
             )
           ],
