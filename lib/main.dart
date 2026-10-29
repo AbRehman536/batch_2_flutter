@@ -1,4 +1,5 @@
 
+import 'package:batch_2/extra/date_time_picker.dart';
 import 'package:batch_2/extra/onBoardingScreen.dart';
 import 'package:batch_2/screens/auth_screens/login_screen.dart';
 import 'package:batch_2/screens/home_screens/explore.dart';
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
 
-      home: PageViewScreen(),
+      home: DateTimePickerScreen(),
     );
   }
 }
