@@ -121,7 +121,147 @@ class _MyCartScreenState extends State<MyCartScreen> {
                   );
                 },),
             ),
-            CustomButton(btnLabel: "Go to Checkout", onPressed: (){})
+            CustomButton(btnLabel: "Go to Checkout", onPressed: (){
+              showModalBottomSheet(
+                isDismissible: false,
+                  context: context, builder: (BuildContext context) {
+                    return Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: .spaceBetween,
+                            children: [
+                              Text("Checkout",style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w900
+                              ),),
+                              IconButton(onPressed: (){
+                                Navigator.pop(context);
+                              }, icon:  Icon(Icons.close))
+                            ],
+                          ),
+                          Divider(),
+                          Row(
+                            mainAxisAlignment: .spaceBetween,
+                            children: [
+                              Text("Delivery",style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500
+                              ),),
+                              Row(
+                                children: [
+                                  Text("Select Method"),
+                                  SizedBox(width: 5,),
+                                  Icon(Icons.arrow_forward_ios)
+                                ],
+                              )
+                            ],
+                          ),
+                          Divider(),
+                          Row(
+                            mainAxisAlignment: .spaceBetween,
+                            children: [
+                              Text("Promo Code",style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500
+                              ),),
+                              Row(
+                                children: [
+                                  Text("Pick Discount"),
+                                  SizedBox(width: 5,),
+                                  Icon(Icons.arrow_forward_ios)
+                                ],
+                              )
+                            ],
+                          ),
+                          Divider(),
+                          Row(
+                            mainAxisAlignment: .spaceBetween,
+                            children: [
+                              Text("Total Cost",style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500
+                              ),),
+                              Row(
+                                children: [
+                                  Text("\$12.43"),
+                                  SizedBox(width: 5,),
+                                  Icon(Icons.arrow_forward_ios)
+                                ],
+                              )
+                            ],
+                          ),
+                          Divider(),
+                          RichText(text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: "By placing an order you agree to our ",
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500
+                                )
+                              ),
+                              TextSpan(
+                                text: "Terms ",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600
+                                )
+                              ),
+                              TextSpan(
+                                text: "And ",
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500
+                                )
+                              ),
+                              TextSpan(
+                                text: "Conditions ",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600
+                                )
+                              ),
+                            ]
+                          )),
+                          CustomButton(btnLabel: "Place Order", onPressed: (){
+                            showDialog(
+                              barrierDismissible: false,
+                                context: context,
+                              builder: (BuildContext context) {
+                                  return Dialog(
+                                    child: SizedBox(
+                                      height: 600,
+                                      child: Column(
+                                        children: [
+                                          IconButton(onPressed: (){
+                                            Navigator.pop(context);
+                                          }, icon: Icon(Icons.close)),
+                                          Image.asset(AppAssets.onBoarding1, height: 200,),
+                                          Text("Order Failed"),
+                                          Text("Something went wrong"),
+                                          CustomButton(btnLabel: "Please Try Again", onPressed: (){}),
+                                          TextButton(onPressed: (){
+                                            Navigator.pop(context);
+                                            Navigator.pop(context);
+                                          }, child: Text("Back to home"))
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                              },);
+                          })
+                        ],
+                      ),
+                    );
+              },
+                  );
+            })
           ],
         ),
       ),

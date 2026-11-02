@@ -4,6 +4,7 @@ import 'package:batch_2/screens/home_screens/explore.dart';
 import 'package:batch_2/screens/home_screens/favorite.dart';
 import 'package:batch_2/screens/home_screens/home_scren.dart';
 import 'package:batch_2/screens/home_screens/my_cart_screen.dart';
+import 'package:batch_2/screens/profile_screen/profile.dart';
 import 'package:flutter/material.dart';
 
 class BottomBarScreen extends StatefulWidget {
@@ -19,7 +20,7 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
     ExploreScreen(),
     MyCartScreen(),
     FavoriteScreen(),
-    DateTimePickerScreen()
+    ProfileScreen()
   ];
   int selectedScreen = 2;
   @override
