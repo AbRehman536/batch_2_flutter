@@ -11,5 +11,12 @@ class AppAssets {
   static String product1Image = "assets/images/product1.png";
   static String canImage = "assets/images/can.png";
   static String bananaImage = "assets/images/banana.png";
+
+
+
+
+
+
   ///Icons
+  static String notificationIcon = "assets/icons/notification.png";
 }
