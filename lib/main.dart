@@ -1,6 +1,7 @@
 
 import 'package:batch_2/extra/date_time_picker.dart';
 import 'package:batch_2/extra/onBoardingScreen.dart';
+import 'package:batch_2/extra/settings.dart';
 import 'package:batch_2/extra/tab_bar.dart';
 import 'package:batch_2/screens/auth_screens/login_screen.dart';
 import 'package:batch_2/screens/home_screens/bottom_bar.dart';
@@ -43,7 +44,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
 
-      home: HomeScreen(),
+      home: SettingsScreen(),
     );
   }
 }
