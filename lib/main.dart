@@ -1,6 +1,10 @@
 
+import 'package:batch_2/extra/animations.dart';
 import 'package:batch_2/extra/date_time_picker.dart';
 import 'package:batch_2/extra/onBoardingScreen.dart';
+import 'package:batch_2/extra/parameters/create_screen.dart';
+import 'package:batch_2/extra/provider/reg.dart';
+import 'package:batch_2/extra/provider/user.dart';
 import 'package:batch_2/extra/settings.dart';
 import 'package:batch_2/extra/tab_bar.dart';
 import 'package:batch_2/screens/auth_screens/login_screen.dart';
@@ -14,12 +18,16 @@ import 'package:batch_2/screens/start_screens/on_Boarding.dart';
 import 'package:batch_2/screens/start_screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(
     DevicePreview(
       enabled: true,
-      builder: (context) => const MyApp(),
+      builder: (context) => MultiProvider(providers: [
+        ChangeNotifierProvider(create: (context) => UserProvider())
+      ],
+      child: const MyApp()),
     ),
   );
 }
@@ -44,7 +52,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
 
-      home: SettingsScreen(),
+      home: RegScreen(),
     );
   }
 }
