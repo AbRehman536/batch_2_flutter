@@ -1,4 +1,6 @@
 
+
+
 import 'package:batch_2/extra/animations.dart';
 import 'package:batch_2/extra/date_time_picker.dart';
 import 'package:batch_2/extra/onBoardingScreen.dart';
@@ -18,6 +20,7 @@ import 'package:batch_2/screens/start_screens/on_Boarding.dart';
 import 'package:batch_2/screens/start_screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -37,22 +40,29 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
+    return ScreenUtilInit(
+      designSize: const Size(375, 812),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child){
+        return MaterialApp(
+          title: 'Flutter Demo',
 
-      // Device Preview configuration
-      useInheritedMediaQuery: true,
-      locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
+          // Device Preview configuration
+          useInheritedMediaQuery: true,
+          locale: DevicePreview.locale(context),
+          builder: DevicePreview.appBuilder,
 
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.deepPurple,
-        ),
-        useMaterial3: true,
-      ),
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: Colors.deepPurple,
+            ),
+            useMaterial3: true,
+          ),
 
-      home: RegScreen(),
+          home: LoginScreen(),
+        );
+      },
     );
   }
 }

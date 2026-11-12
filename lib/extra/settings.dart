@@ -1,3 +1,5 @@
+import 'package:batch_2/constants/app_assets.dart';
+import 'package:batch_2/screens/auth_screens/login_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
@@ -26,6 +28,36 @@ class _SettingsScreenState extends State<SettingsScreen> {
       appBar: AppBar(
         title: Text("Settings Screen"),
         backgroundColor: Colors.blue,
+        actions: [
+          PopupMenuButton(
+            itemBuilder: (BuildContext context) { 
+            return [
+              PopupMenuItem(child: ListTile(
+                leading: Icon(Icons.home),
+                title: Text("Home"),
+                trailing: Text("Ctrl + H"),
+              )),
+              PopupMenuItem(child: ListTile(
+                leading: Icon(Icons.tab),
+                title: Text("New Tab"),
+                trailing: Text("Ctrl + N"),
+              )),
+              PopupMenuItem(child: ListTile(
+                leading: Icon(Icons.settings),
+                title: Text("Settings"),
+                trailing: Text("Ctrl + S"),
+              )),
+              PopupMenuItem(child: ListTile(
+                leading: Icon(Icons.logout),
+                title: Text("Logout"),
+                trailing: Text("Ctrl + L"),
+                onTap: (){
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> LoginScreen()));
+                },
+              )),
+            ];
+          },)
+        ],
       ),
       body: Center(
         child: Column(
@@ -81,14 +113,54 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     selectedCourse = val;
                   });
                 }),
-            Pinput(
-              length: 6,
-              showCursor: true,
-              onCompleted: (value){
-                print(value);
-              },
-            )
+            // Pinput(
+            //   length: 6,
+            //   showCursor: true,
+            //   onCompleted: (value){
+            //     print(value);
+            //   },
+            // )
           ],
+        ),
+      ),
+      drawer: Container(
+        width: 250,
+        child: Drawer(
+          child: ListView(
+            children: [
+              Container(
+                height: 200,
+                color: Colors.blue,
+                child: DrawerHeader(child: Column(
+                  children: [
+                    CircleAvatar(
+                      backgroundImage: AssetImage(AppAssets.onBoarding1),
+                      radius: 30,
+                    ),
+                    Text("Sharp Visions"),
+                    Text("sharpvisions@gmail.com")
+                  ],
+                )),
+              ),
+              ListTile(
+                leading: Icon(Icons.home),
+                title: Text("Home"),
+              ),
+              ListTile(
+                leading: Icon(Icons.shopping_cart),
+                title: Text("My Orders"),
+              ),
+              ListTile(
+                leading: Icon(Icons.list),
+                title: Text("WishList"),
+              ),
+              Divider(),
+              ListTile(
+                leading: Icon(Icons.logout),
+                title: Text("Logout"),
+              ),
+            ],
+          ),
         ),
       ),
     );
