@@ -1,5 +1,6 @@
 import 'package:batch_2/constants/app_assets.dart';
 import 'package:batch_2/constants/app_colors.dart';
+import 'package:batch_2/screens/auth_screens/login_screen.dart';
 import 'package:batch_2/utils/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
@@ -39,7 +40,9 @@ class OnBoardingScreen extends StatelessWidget {
                       ),),
                     CustomButton(
                         btnLabel: "Get Started",
-                        onPressed: (){})
+                        onPressed: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginScreen()));
+                        })
                   ],
                 ),
               ),

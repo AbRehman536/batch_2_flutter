@@ -1,5 +1,7 @@
 import 'package:batch_2/constants/app_assets.dart';
 import 'package:batch_2/constants/app_colors.dart';
+import 'package:batch_2/screens/home_screens/bottom_bar.dart';
+import 'package:batch_2/screens/home_screens/home_scren.dart';
 import 'package:batch_2/utils/widgets/custom_button.dart';
 import 'package:batch_2/utils/widgets/custom_textField.dart';
 import 'package:flutter/material.dart';
@@ -71,7 +73,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 Align(
                   alignment: Alignment.center,
                   child: CustomButton(
-                      btnLabel: "Login", onPressed: (){}),
+                      btnLabel: "Login", onPressed: (){
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> BottomBarScreen()));
+                  }),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -81,7 +85,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         fontWeight: FontWeight.w600,
                         fontSize: 14.sp,
                       ),),
-                    TextButton(onPressed: (){}, child: Text("SignUp"
+                    TextButton(onPressed: (){
+                      
+                    }, child: Text("SignUp"
                       ,style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 14.sp,
