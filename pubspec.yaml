@@ -43,6 +43,12 @@ dependencies:
   provider:
   flutter_screenutil: ^5.9.3
 
+  #Firebase Packages
+  cloud_firestore: ^7.2.0
+  firebase_auth: ^7.1.0
+  firebase_core: ^5.2.0
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
