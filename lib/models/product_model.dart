@@ -16,6 +16,7 @@ class ProductModel {
   final String? productDetails;
   final double? productPrice;
   final String? productNutrition;
+  final bool? productStock;
   final int? createdAt;
 
   ProductModel({
@@ -26,6 +27,7 @@ class ProductModel {
     this.productDetails,
     this.productPrice,
     this.productNutrition,
+    this.productStock,
     this.createdAt,
   });
 
@@ -37,6 +39,7 @@ class ProductModel {
     productDetails: json["productDetails"],
     productPrice: json["productPrice"]?.toDouble(),
     productNutrition: json["productNutrition"],
+    productStock: json["productStock"],
     createdAt: json["createdAT"],
   );
 
@@ -48,6 +51,7 @@ class ProductModel {
     "productDetails": productDetails,
     "productPrice": productPrice,
     "productNutrition": productNutrition,
+    "productStock": productStock,
     "createdAT": createdAt,
   };
 }

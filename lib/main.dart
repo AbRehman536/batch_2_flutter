@@ -1,6 +1,3 @@
-
-
-
 import 'package:batch_2/extra/animations.dart';
 import 'package:batch_2/extra/date_time_picker.dart';
 import 'package:batch_2/extra/onBoardingScreen.dart';
@@ -9,6 +6,7 @@ import 'package:batch_2/extra/provider/reg.dart';
 import 'package:batch_2/extra/provider/user.dart';
 import 'package:batch_2/extra/settings.dart';
 import 'package:batch_2/extra/tab_bar.dart';
+import 'package:batch_2/firebase_options.dart';
 import 'package:batch_2/screens/auth_screens/login_screen.dart';
 import 'package:batch_2/screens/home_screens/bottom_bar.dart';
 import 'package:batch_2/screens/home_screens/explore.dart';
@@ -18,12 +16,17 @@ import 'package:batch_2/screens/home_screens/my_cart_screen.dart';
 import 'package:batch_2/screens/profile_screen/profile.dart';
 import 'package:batch_2/screens/start_screens/on_Boarding.dart';
 import 'package:batch_2/screens/start_screens/splash_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main()async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform
+  );
   runApp(
     DevicePreview(
       enabled: true,
